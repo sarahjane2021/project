@@ -1,7 +1,10 @@
 employee_id,organization,work_setup,onleave,durationstart,durationend,leave_type,timein,timeout,date,location
-2,TechCorp,Onsite,False,,,,21:31:00,20:27:52,2024-02-11,Collinsmouth
-6,TechCorp,Onsite,True,2025-02-07 01:57:46,2025-02-10 01:57:46,Paternity Leave,,,2024-02-11,Remote
-7,TechCorp,Onsite,False,,,,16:14:41,13:28:50,2024-02-11,Remote
-8,TechCorp,Onsite,False,,,,06:08:22,00:01:59,2024-02-11,Remote
-9,TechCorp,Onsite,False,,,,00:13:15,11:06:21,2024-02-11,West Robertborough
-10,TechCorp,Onsite,True,2025-02-07 10:21:28,2025-02-10 10:21:28,Maternity Leave,,,2024-02-11,Muellerhaven
+1,TechCorp,Remote,False,,,,01:32:25,16:30:24,2025-02-12,Remote
+2,TechCorp,Onsite,True,2025-02-15 11:05:15,2025-02-17 11:05:15,Vacation Leave,,,2025-02-12,South Gabriel
+6,TechCorp,Onsite,True,2025-02-01 22:25:27,2025-02-06 22:25:27,Special Leave for Women,,,2025-02-12,Velezhaven
+7,TechCorp,Remote,False,,,,00:39:26,05:30:41,2025-02-12,Remote
+8,TechCorp,Onsite,False,,,,15:25:48,10:38:52,2025-02-12,North Nancychester
+9,TechCorp,Onsite,True,2025-02-16 06:47:00,2025-02-20 06:47:00,Maternity Leave,,,2025-02-12,Lake Shannonstad
+10,TechCorp,Remote,True,2025-02-13 05:43:25,2025-02-15 05:43:25,Maternity Leave,,,2025-02-12,Remote
+11,TechCorp,Remote,True,2025-02-05 00:03:13,2025-02-06 00:03:13,Special Leave for Women,,,2025-02-12,Remote
+12,TechCorp,Onsite,False,,,,11:03:15,09:33:44,2025-02-12,South Randy

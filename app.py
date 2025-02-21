@@ -17,7 +17,7 @@ from sqlalchemy.orm import sessionmaker
 import datetime
 
 ####################################
-st.set_page_config(layout='wide', initial_sidebar_state='expanded')
+st.set_page_config(layout='wide', page_title="Employee Insights Dashboard")
 ####################################
 # Load custom CSS
 def local_css(file_name):
@@ -559,7 +559,7 @@ if uploaded_file is not None:
                         session.commit()
                         st.success("✅ Employee data imported successfully!")
                     else:
-                        st.warning("⚠️ Eemployees already exist.")
+                        st.warning("⚠️ Employees already exist.")
             except Exception as e:
                 session.rollback()
                 st.error(f"❌ Error importing employee data: {e}")
