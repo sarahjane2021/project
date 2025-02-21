@@ -411,12 +411,12 @@ with col2:
             legend=dict(
                 orientation="h",  # Horizontal legend
                 yanchor="bottom",
-                y=-0.2,  #move the legend up or down
+                y=-0.3,  #move the legend up or down
                 xanchor="center",
                 x=0.5  # Center the legend
             ),
             height=400,  # Adjust the height
-            width=600    # Adjust the width
+            width=500    # Adjust the width
         )
 
         # Display the pie chart in Streamlit
