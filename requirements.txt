@@ -1,0 +1,10 @@
+streamlit
+sqlalchemy
+psycopg2-binary
+pandas
+streamlit-option-menu
+plotly
+plost
+seaborn
+matplotlib
+psycopg2
