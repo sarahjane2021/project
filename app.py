@@ -92,39 +92,36 @@ else:
 st.markdown('### Metrics')
 col1, col2, col3 = st.columns(3)
 
-col1.markdown(f'''
-<div class="card">
-  <div class="metric-title" style="font-weight: bold; font-size: 1.2rem;">Total Number of Employees</div>
-  <div class="metric-value" style="font-size: 2rem;">{num_employees}</div>
-</div>
-''', unsafe_allow_html=True)
+st.markdown('### Metrics')
 
-col2.markdown(f'''
-<div class="card">
-  <div class="metric-title" style="font-weight: bold; font-size: 1.2rem;">Present ({latest_date_str})</div>
-  <div class="metric-value" style="font-size: 2rem;">{num_present}</div>
-</div>
-''', unsafe_allow_html=True)
+col1, col2, col3 = st.columns(3)
 
-col3.markdown(f'''
-<div class="card">
-  <div class="metric-title" style="font-weight: bold; font-size: 1.2rem;">On-Leave ({latest_date_str})</div>
-  <div class="metric-value" style="font-size: 2rem;">{num_on_leave}</div>
-</div><br>
-''', unsafe_allow_html=True)
+with col1:
+    with st.container(border=True):
+        st.markdown(f'''
+        <div class="card">
+          <div class="metric-title" style="font-weight: bold; font-size: 1.2rem;">Total Number of Employees</div>
+          <div class="metric-value" style="font-size: 2rem;">{num_employees}</div>
+        </div>
+        ''', unsafe_allow_html=True)
 
-####################################  
+with col2:
+    with st.container(border=True):
+        st.markdown(f'''
+        <div class="card">
+          <div class="metric-title" style="font-weight: bold; font-size: 1.2rem;">Present ({latest_date_str})</div>
+          <div class="metric-value" style="font-size: 2rem;">{num_present}</div>
+        </div>
+        ''', unsafe_allow_html=True)
 
-########################################################
-# Function to fetch existing data
-########################################################
-import streamlit as st
-import pandas as pd
-import datetime
-from sqlalchemy import create_engine
-
-# Assume you have already set up your engine, for example:
-# engine = create_engine("postgresql://postgres:123@localhost:5432/project")
+with col3:
+    with st.container(border=True):
+        st.markdown(f'''
+        <div class="card">
+          <div class="metric-title" style="font-weight: bold; font-size: 1.2rem;">On-Leave ({latest_date_str})</div>
+          <div class="metric-value" style="font-size: 2rem;">{num_on_leave}</div>
+        </div>
+        ''', unsafe_allow_html=True)
 
 ########################################################
 # Function to fetch attendance data
@@ -237,14 +234,27 @@ if not attendance_data.empty:
     combined_data = pd.concat([present_data, absent_data], ignore_index=True)
     
     # Reorder columns as desired
-    cols = ['employee_name', 'organization', 'work_setup', 'onleave', 'leave_type',
-            'durationstart', 'durationend', 'timein', 'timeout', 'date', 'location', 'Note']
+    cols = ['employee_name', 'organization', 'work_setup', 'date', 'timein', 'timeout', 'Note', 'onleave', 'leave_type',
+            'durationstart', 'durationend', 'location']
     combined_data = combined_data[cols]
     
     # Optional: Sort by employee name
-    combined_data = combined_data.sort_values(by='employee_name')
-    
-    st.dataframe(combined_data)
+    # Rename columns for display
+    combined_data = combined_data.rename(columns={
+        'employee_name': 'Employee Name',
+        'organization': 'Organization',
+        'work_setup': 'Work Setup',
+        'onleave': 'On-leave',
+        'leave_type': 'Leave Type',
+        'durationstart': 'Start',
+        'durationend': 'End',
+        'timein': 'Time-in',
+        'timeout': 'Time-out',
+        'date': 'Date',
+        'location': 'Location'
+        })
+
+    st.dataframe(combined_data.set_index('Employee Name'))
 else:
     st.warning("No attendance records found.")
 
